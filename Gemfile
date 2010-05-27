@@ -7,6 +7,9 @@ gem 'rails', '3.0.0.beta3'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+# Use Authlogic for security
+gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -21,6 +24,14 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber', '0.7.2'
+  gem 'rspec-rails', '2.0.0.beta.8'
+  gem 'spork'
+  gem
+ end
+  
