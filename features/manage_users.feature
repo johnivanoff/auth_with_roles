@@ -3,15 +3,16 @@ Feature: Manage users
   [stakeholder]
   wants [behaviour]
   
+@focus
   Scenario: Register new user
     Given I am on the new user page
     When I fill in "Username" with "username 1"
-    And I fill in "Email" with "email1@example.com"
-    And I fill in "Password" with "password 1"
+    And I fill in "Email" with "example@example.com"
+    And I fill in "Password" with "secret"
+    And I fill in "Password confirmation" with "secret"
     And I press "Create"
     Then I should see "username 1"
-    And I should see "email1@example.com"
-    And show me the page
+    And I should see "example@example.com"
 
   # Rails generates Delete links that use Javascript to pop up a confirmation
   # dialog and then do a HTTP POST request (emulated DELETE request).
