@@ -60,8 +60,8 @@ Feature: Manage users
       |username 4|email4@example.com|secret|secret|
     And I am logged in as "username 1" with password "secret"
     Then I should see the following users:
-      |Username|Email|
-      |username 1|email1@example.com|
-      |username 2|email2@example.com|
-      |username 3|email3@example.com|
-      |username 4|email4@example.com|
+      |Username|Email|Show|
+      |username 1|email1@example.com|Show|
+      |username 2|email2@example.com|Show|
+      |username 3|email3@example.com|Show|
+      |username 4|email4@example.com|Show|
