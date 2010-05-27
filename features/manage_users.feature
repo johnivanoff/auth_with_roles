@@ -3,7 +3,6 @@ Feature: Manage users
   [stakeholder]
   wants [behaviour]
   
-@focus
   Scenario: Register new user
     Given I am on the new user page
     When I fill in "Username" with "username 1"
@@ -40,13 +39,29 @@ Feature: Manage users
   Scenario: Delete user
     Given the following users:
       |username|email|password|password_confirmation|
-      |username 1|email1@example.com|password 1|password 1|
-      |username 2|email2@example.com|password 2|password 2|
-      |username 3|email3@example.com|password 3|password 3|
-      |username 4|email4@example.com|password 4|password 4|
+      |username 1|email1@example.com|secret|secret|
+      |username 2|email2@example.com|secret|secret|
+      |username 3|email3@example.com|secret|secret|
+      |username 4|email4@example.com|secret|secret|
     When I delete the 3rd user
     Then I should see the following users:
       |Username|Email|
       |username 1|email1@example.com|
       |username 2|email2@example.com|
+      |username 4|email4@example.com|
+      
+@focus
+  Scenario: Admin sees all user's edit links
+    Given the following users:
+      |username|email|password|password_confirmation|
+      |username 1|email1@example.com|secret|secret|
+      |username 2|email2@example.com|secret|secret|
+      |username 3|email3@example.com|secret|secret|
+      |username 4|email4@example.com|secret|secret|
+    And I am logged in as "username 1" with password "secret"
+    Then I should see the following users:
+      |Username|Email|
+      |username 1|email1@example.com|
+      |username 2|email2@example.com|
+      |username 3|email3@example.com|
       |username 4|email4@example.com|
