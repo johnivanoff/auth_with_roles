@@ -24,7 +24,6 @@ gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
-
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
@@ -32,6 +31,5 @@ group :test do
   gem 'cucumber', '0.7.2'
   gem 'rspec-rails', '2.0.0.beta.8'
   gem 'spork'
-  gem
- end
-  
+  gem 'launchy'    # So you can do Then show me the page
+end
