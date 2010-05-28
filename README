@@ -7,4 +7,4 @@ rspec http://wiki.github.com/dchelimsky/rspec/
 
 The rspec tests are not 100%.
 The tests can use a ton of refactoring too.
-but it's a start.
+It's a start.
