@@ -1,9 +1,8 @@
 Feature: Manage roles
-  In order to [goal]
-  [stakeholder]
-  wants [behaviour]
+  In order to manage roles
+  as A BEFleet Admin
+  I want to create and edit roles.
   
-@focus
   Scenario: Register new role
     Given I am on the new role page
     When I fill in "Name" with "name 1"

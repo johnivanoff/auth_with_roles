@@ -10,5 +10,12 @@
   <%= @user.email %>
 </p>
 
+<p><%= pluralize(@user.roles.size, 'Role') %></p>
+<ul>
+	<% @user.roles.each do |role| %>
+		<li><%= role.name %></li>
+	<% end %>
+</ul>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

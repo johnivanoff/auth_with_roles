@@ -3,15 +3,22 @@ Feature: Manage users
   [stakeholder]
   wants [behaviour]
   
+@focus
   Scenario: Register new user
-    Given I am on the new user page
+    Given the following roles:
+      |name|
+      |admin|
+      
+    And I am on the new user page
     When I fill in "Username" with "username 1"
     And I fill in "Email" with "example@example.com"
     And I fill in "Password" with "secret"
     And I fill in "Password confirmation" with "secret"
+    And I check "admin"
     And I press "Create"
     Then I should see "username 1"
     And I should see "example@example.com"
+    And I should see "admin"
 
   # Rails generates Delete links that use Javascript to pop up a confirmation
   # dialog and then do a HTTP POST request (emulated DELETE request).
