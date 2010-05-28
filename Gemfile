@@ -10,6 +10,9 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # Use Authlogic for security
 gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
 
+# using for role assignments
+gem "declarative_authorization", :git =>  "git://github.com/stffn/declarative_authorization.git"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
