@@ -6,7 +6,7 @@
     <th>Email</th>
     <th>Show</th>
     <th>Edit</th>
-    <th></th>
+    <th>Destroy</th>
   </tr>
 
 <% @users.each do |user| %>
@@ -14,12 +14,20 @@
     <td><%= user.username %></td>
     <td><%= user.email %></td>
     <td>
-    	<% if permitted_to? :edit, @user %>
+    	<% if permitted_to? :show, @user %>
 			<%= link_to 'Show', user %>
 		<% end %>
 	</td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+    	<% if permitted_to? :edit, @user %>
+			<%= link_to 'Edit', edit_user_path(user) %>
+		<% end %>
+	</td>
+    <td>
+    	<% if permitted_to? :destroy, @user %>
+			<%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>
+	</td>
   </tr>
 <% end %>
 </table>

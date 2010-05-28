@@ -3,7 +3,6 @@ Feature: Manage users
   [stakeholder]
   wants [behaviour]
   
-@focus
   Scenario: Register new user
     Given the following roles:
       |name|
@@ -43,31 +42,42 @@ Feature: Manage users
   # of the tags above is to modify your views to use <button> instead. You can
   # see how in http://github.com/jnicklas/capybara/issues#issue/12
   #
+  
   Scenario: Delete user
-    Given the following users:
-      |username|email|password|password_confirmation|
-      |username 1|email1@example.com|secret|secret|
-      |username 2|email2@example.com|secret|secret|
-      |username 3|email3@example.com|secret|secret|
-      |username 4|email4@example.com|secret|secret|
+    Given the following roles:
+      |name|
+      |admin|
+      |guest|
+    And the following users:
+      |username  |email|password|password_confirmation|role_ids|
+      |don       |email1@example.com|secret|secret|1|
+      |username 2|email2@example.com|secret|secret|2|
+      |username 3|email3@example.com|secret|secret|2|
+      |username 4|email4@example.com|secret|secret|2|
+    And I am logged in as "don" with password "secret"
     When I delete the 3rd user
     Then I should see the following users:
-      |Username|Email|
-      |username 1|email1@example.com|
+      |Username  |Email|
+      |don       |email1@example.com|
       |username 2|email2@example.com|
       |username 4|email4@example.com|
       
+@focus
   Scenario: Admin sees all user's edit links
-    Given the following users:
-      |username|email|password|password_confirmation|
-      |username 1|email1@example.com|secret|secret|
-      |username 2|email2@example.com|secret|secret|
-      |username 3|email3@example.com|secret|secret|
-      |username 4|email4@example.com|secret|secret|
-    And I am logged in as "username 1" with password "secret"
+    Given the following roles:
+      |name|
+      |admin|
+      |guest|
+    And the following users:
+      |username  |email|password|password_confirmation|role_ids|
+      |don       |email1@example.com|secret|secret|1|
+      |username 2|email2@example.com|secret|secret|2|
+      |username 3|email3@example.com|secret|secret|2|
+      |username 4|email4@example.com|secret|secret|2|
+    And I am logged in as "don" with password "secret"
     Then I should see the following users:
-      |Username|Email|Show|Edit|
-      |username 1|email1@example.com|Show|Edit|
-      |username 2|email2@example.com|Show|Edit|
-      |username 3|email3@example.com|Show|Edit|
-      |username 4|email4@example.com|Show|Edit|
+      |Username  |Email|Show|Edit|Destroy|
+      |don       |email1@example.com|Show|Edit|Destroy|
+      |username 2|email2@example.com|Show|Edit|Destroy|
+      |username 3|email3@example.com|Show|Edit|Destroy|
+      |username 4|email4@example.com|Show|Edit|Destroy|
