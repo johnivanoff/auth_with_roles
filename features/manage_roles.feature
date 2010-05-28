@@ -3,6 +3,7 @@ Feature: Manage roles
   [stakeholder]
   wants [behaviour]
   
+@focus
   Scenario: Register new role
     Given I am on the new role page
     When I fill in "Name" with "name 1"
