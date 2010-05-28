@@ -1,4 +1,6 @@
 AuthWithRoles::Application.routes.draw do |map|
+  resources :roles
+
 
   resources :users
   
