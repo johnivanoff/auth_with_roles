@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    @user = current_user
+    @user = User.find(params[:id])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
