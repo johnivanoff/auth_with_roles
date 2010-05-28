@@ -50,7 +50,6 @@ Feature: Manage users
       |username 2|email2@example.com|
       |username 4|email4@example.com|
       
-@focus
   Scenario: Admin sees all user's edit links
     Given the following users:
       |username|email|password|password_confirmation|
