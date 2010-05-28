@@ -6,5 +6,5 @@ cucumber http://wiki.github.com/aslakhellesoy/cucumber/
 rspec http://wiki.github.com/dchelimsky/rspec/
 
 The rspec tests are not 100%.
-The tests can use a tone of refactoring too.
+The tests can use a ton of refactoring too.
 but it's a start.
