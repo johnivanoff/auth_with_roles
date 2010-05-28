@@ -8,3 +8,8 @@ rspec http://wiki.github.com/dchelimsky/rspec/
 The rspec tests are not 100%.
 The tests can use a ton of refactoring too.
 It's a start.
+
+Thanks to
+railscasts Authlogic http://railscasts.com/episodes/160-authlogic
+railscasts declarative-authorization http://railscasts.com/episodes/188-declarative-authorization
+and the documentation for the gems I used.
