@@ -1,6 +1,6 @@
 Feature: Manage roles
   In order to manage roles
-  as A BEFleet Admin
+  as an Admin
   I want to create and edit roles.
   
   Scenario: Register new role
