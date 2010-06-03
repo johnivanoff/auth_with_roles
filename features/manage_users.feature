@@ -1,7 +1,7 @@
 Feature: Manage users
-  In order to [goal]
-  [stakeholder]
-  wants [behaviour]
+  In order to manage Users
+  As an Admin
+  I want to manage users
   
   Scenario: Register new user
     Given the following roles:
