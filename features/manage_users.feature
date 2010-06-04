@@ -62,22 +62,42 @@ Feature: Manage users
       |username 2|email2@example.com|
       |username 4|email4@example.com|
       
-@focus
   Scenario: Admin sees all user's edit links
-    Given the following roles:
+	Given the following roles:
       |name|
       |admin|
       |guest|
     And the following users:
-      |username  |email|password|password_confirmation|role_ids|
-      |don       |email1@example.com|secret|secret|1|
+      |username |email|password|password_confirmation|role_ids|
+      |don |email1@example.com|secret|secret|1|
       |username 2|email2@example.com|secret|secret|2|
       |username 3|email3@example.com|secret|secret|2|
       |username 4|email4@example.com|secret|secret|2|
     And I am logged in as "don" with password "secret"
     Then I should see the following users:
-      |Username  |Email|Show|Edit|Destroy|
+      |Username  |Email             |Show|Edit|Destroy|
       |don       |email1@example.com|Show|Edit|Destroy|
       |username 2|email2@example.com|Show|Edit|Destroy|
       |username 3|email3@example.com|Show|Edit|Destroy|
       |username 4|email4@example.com|Show|Edit|Destroy|
+    And I should see "New User"
+
+  Scenario: guest sees all user's and Show links, but no edit or destroy links
+	Given the following roles:
+      |name|
+      |admin|
+      |guest|
+    And the following users:
+      |username |email|password|password_confirmation|role_ids|
+      |don       |email1@example.com|secret|secret|1|
+      |jimmy     |email2@example.com|secret|secret|2|
+      |username 3|email3@example.com|secret|secret|2|
+      |username 4|email4@example.com|secret|secret|2|
+    And I am logged in as "jimmy" with password "secret"
+    Then I should see the following users:
+      |Username  |Email             |Show|Edit|Destroy|
+      |don       |email1@example.com|Show|    |       |
+      |jimmy     |email2@example.com|Show|    |       |
+      |username 3|email3@example.com|Show|    |       |
+      |username 4|email4@example.com|Show|    |       |
+    And I should not see "New User"
