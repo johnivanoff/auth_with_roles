@@ -1,3 +1,15 @@
+Given /^I am logged in as "([^"]*)" with password "([^"]*)" with role "([^"]*)"$/ do |arg1, arg2, arg3|
+  Role.create!(:name => arg3)
+  visit new_user_path
+  fill_in("Username", :with => arg1)
+  fill_in("Email", :with => "x@x.com")
+  fill_in("Password", :with => arg2)
+  fill_in("Password confirmation", :with => arg2)
+  check("admin")
+  click_button("Create")
+end
+
+
 Given /^the following roles:$/ do |roles|
   Role.create!(roles.hashes)
 end
