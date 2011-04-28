@@ -3,7 +3,6 @@ Feature: Manage roles
   as an Admin
   I want to create and edit roles.
 
-  @wip  
   Scenario: Register new role
 	Given I am logged in as "don" with password "secret" with role "admin"
     And I am on the new role page
@@ -11,7 +10,6 @@ Feature: Manage roles
     And I press "Create"
     Then I should see "name 1"
 
-  @wip
   Scenario: Delete role
 	Given I am logged in as "don" with password "secret" with role "admin"
     And the following roles:

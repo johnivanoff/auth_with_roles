@@ -17,7 +17,7 @@ Feature: Manage users
     Then I should see "username 1"
     And I should see "example@example.com"
     And I should see "admin"
-  
+
   Scenario: Delete user
     Given the following roles:
       | name  |
@@ -25,11 +25,15 @@ Feature: Manage users
       | guest |
 
     And the following users:
-      | username   | email              | password | password_confirmation | role_ids |
-      | don        | email1@example.com | secret   | secret                | 1        |
-      | username 2 | email2@example.com | secret   | secret                | 2        |
-      | username 3 | email3@example.com | secret   | secret                | 2        |
-      | username 4 | email4@example.com | secret   | secret                | 2        |
+      | username   | email              | password | password_confirmation |
+      | don        | email1@example.com | secret   | secret                |
+      | username 2 | email2@example.com | secret   | secret                |
+      | username 3 | email3@example.com | secret   | secret                |
+      | username 4 | email4@example.com | secret   | secret                |
+
+    And the following assignments:
+      | user_id | role_id |
+      | 1       | 1       |
 
     And I am logged in as "don" with password "secret"
     When I delete the 3rd user
@@ -47,11 +51,15 @@ Feature: Manage users
       | guest |
 
     And the following users:
-      | username   | email              | password | password_confirmation | role_ids |
-      | don        | email1@example.com | secret   | secret                | 1        |
-      | username 2 | email2@example.com | secret   | secret                | 2        |
-      | username 3 | email3@example.com | secret   | secret                | 2        |
-      | username 4 | email4@example.com | secret   | secret                | 2        |
+      | username   | email              | password | password_confirmation |
+      | don        | email1@example.com | secret   | secret                |
+      | username 2 | email2@example.com | secret   | secret                |
+      | username 3 | email3@example.com | secret   | secret                |
+      | username 4 | email4@example.com | secret   | secret                |
+
+    And the following assignments:
+      | user_id | role_id |
+      | 1       | 1       |
 
     And I am logged in as "don" with password "secret"
     Then I should see the following users:
@@ -70,11 +78,15 @@ Feature: Manage users
       | guest |
 
     And the following users:
-      | username   | email              | password | password_confirmation | role_ids |
-      | don        | email1@example.com | secret   | secret                | 1        |
-      | jimmy      | email2@example.com | secret   | secret                | 2        |
-      | username 3 | email3@example.com | secret   | secret                | 2        |
-      | username 4 | email4@example.com | secret   | secret                | 2        |
+      | username   | email              | password | password_confirmation |
+      | don        | email1@example.com | secret   | secret                |
+      | jimmy      | email2@example.com | secret   | secret                |
+      | username 3 | email3@example.com | secret   | secret                |
+      | username 4 | email4@example.com | secret   | secret                |
+
+    And the following assignments:
+      | user_id | role_id |
+      | 2       | 2       |
 
     And I am logged in as "jimmy" with password "secret"
     Then I should see the following users:
